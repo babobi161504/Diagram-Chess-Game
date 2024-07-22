@@ -1,0 +1,66 @@
+@startuml
+
+' start
+start
+:Start Game;
+:Initialize Board;
+if (Piece'color is white ) then (Yes)
+  :the first move;
+else (No)
+  :the second move;
+endif
+stop
+
+' pause activity
+start
+:Pause Game;
+:Save Current State;
+stop
+
+' remuse activity
+start
+:Resume Game;
+:Load Saved State;
+stop
+
+'surender activity
+start
+:Surrender;
+:Declare Opponent Wins;
+stop
+
+'draw activity
+start
+:Propose Draw;
+if (Opponent Accepts?) then (Yes)
+  :Declare Draw;
+else (No)
+  :Continue Game;
+endif
+stop
+
+'piece activity
+start
+:Select Piece;
+:Select Destination;
+if (Valid Move?) then (Yes)
+  :Move Piece;
+  if (Promotion?) then (Yes)
+    :Promote Pawn;
+  endif
+  if (Take Piece?) then (Yes)
+    :Remove Opponent's Piece;
+  endif
+  if (Check?) then (Yes)
+    :Declare Check;
+  endif
+  if (Checkmate?) then (Yes)
+    :Declare Checkmate;
+  endif
+else (No)
+  :Invalid Move;
+endif
+stop
+
+@enduml
+
