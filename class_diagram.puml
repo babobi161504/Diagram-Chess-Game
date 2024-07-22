@@ -1,0 +1,30 @@
+@startuml Chess Game
+class Piece {
+    name
+    position
+    color
+    isValidMove()
+}
+
+class Player {
+    name
+    color
+    makeMove()
+    surrender()
+
+}
+
+class Position {
+    position_x
+    posotion_y
+}
+
+class ChessBoard {
+    square
+}
+
+Piece - ChessBoard : <
+ChessBoard *- Player : >
+ChessBoard -- Position : >  
+
+@enduml
