@@ -1,0 +1,63 @@
+
+' title Chess Game
+' left to right direction
+' actor Player as p
+
+' usecase "Start" as start
+' usecase "Game Management" as gameManagement
+'     usecase "Pause" as pause
+'     usecase "Resume" as resume
+'     usecase "Surrender" as surrender
+'     usecase "Draw" as draw
+' usecase "Move Piece" as movePiece
+'     usecase "Promote Pawn" as protomePawn
+'     usecase "Take Piece" as takePiece
+'     usecase "Check" as check
+'     usecase "Check Mate" as checkMate
+'     usecase "Undo" as undo
+' usecase "End" as end
+
+
+' p --> start
+' p --> gameManagement
+' p --> movePiece
+' p --> end
+
+' gameManagement --> pause
+' gameManagement --> resume
+' gameManagement --> surrender
+' gameManagement --> draw
+
+' movePiece --> protomePawn
+' movePiece --> takePiece
+' movePiece --> check
+' movePiece --> checkMate
+' movePiece --> undo
+
+' @enduml
+
+
+
+@startuml Chess Game
+title Chess Game
+left to right direction
+actor Player
+
+rectangle System {
+    usecase "Play With Player" as PlayWithPlayer
+    usecase "Join Room" as JoinRoom
+    usecase "Create Room" as CreateRoom
+    usecase "Control Piece" as ControlPiece
+    usecase "Manage Game" as ManageGame
+}
+
+Player --> PlayWithPlayer 
+Player --> JoinRoom
+Player --> CreateRoom
+Player --> ControlPiece
+Player --> ManageGame
+
+PlayWithPlayer ..> JoinRoom : extend
+PlayWithPlayer ..> CreateRoom : extend
+
+@enduml
