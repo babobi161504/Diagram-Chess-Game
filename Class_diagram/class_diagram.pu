@@ -1,0 +1,88 @@
+@startuml Class Diagram
+
+class Player {
+    - name: String
+    - whiteSide: boolean
+
+    + isWhiteSide(): Boolean
+    + proposeDraw(): void
+    + surrender():  void
+    + makeMove(start: Cell, end: Cell):
+}
+
+class Game {
+    - whitePlayer: Player 
+    - blackPlayer: Player
+    - board: Board
+
+    + startGame(): void
+    + undoMove(): void
+    + saveGame(): void
+    + resetGame(): void
+    + pauseGame(): void
+}
+
+class Board {
+    - cells: Cell[][]
+
+    + setupBoard(): void
+    + getCell(row: int, column: int): Cell
+    + setCell(): void
+}
+
+class Cell {
+    - row: int
+    - column: int
+    - piece: PieceBase
+
+    + isEmpty(): Boolean
+    + getPiece(): PieceBase
+    + setPiece(piece: PieceBase): void
+}
+
+abstract class PieceBase {
+    - name: String
+    - whitePiece: Boolean
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class King extends PieceBase {
+    - isCastling: boolean
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class Queen extends PieceBase {
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class Rook extends PieceBase {
+    - isCastling: boolean
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class Bishop extends PieceBase {
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class Knight extends PieceBase {
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+class Pawn extends PieceBase {
+    - isPromote: boolean
+
+    + isValidMove(start: Cell, end: Cell): Boolean
+}
+
+Game --> Player
+Game --> Board
+Board --> Cell
+Cell --> PieceBase
+
+@enduml
