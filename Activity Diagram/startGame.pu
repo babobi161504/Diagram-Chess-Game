@@ -1,0 +1,9 @@
+@startuml startGame
+title Activity Diagram for "Start Game"
+
+start
+:Creater Board;
+:Place Pieces in Starting Position;
+:Display Board;
+stop
+@enduml

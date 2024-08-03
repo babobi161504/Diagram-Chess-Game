@@ -1,0 +1,32 @@
+@startuml Chess Game
+title Chess Game Use Case Diagram (Offline)
+left to right direction
+actor Player
+rectangle chessgame {
+
+package "Screen Game" {
+    usecase "Start Game" as StartGame
+    usecase "Move Piece" as MovePiece
+    usecase "Undo Move" as UndoMove
+    usecase "End Game" as EndGame
+    usecase "Propose Draw" as ProposeDraw
+    usecase "Surrender" as Surrender
+}
+
+package "Screen System" {
+    usecase "Reset Game" as ResetGame
+    usecase "Pause Game" as PauseGame
+}
+
+Player -down-> StartGame
+Player -down-> MovePiece
+Player -down-> ResetGame
+Player -down-> UndoMove
+Player -down-> PauseGame
+Player -down-> EndGame
+
+EndGame <|- ProposeDraw
+EndGame <|- Surrender
+}
+@enduml
+
