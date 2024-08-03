@@ -1,0 +1,36 @@
+@startuml castling
+|Player|
+start
+repeat
+    :chooses a piece;
+    :Player chooses the King piece;
+
+    |System|
+    :System shows valid moves for the piece;
+    :System shows valid moves for the King;
+
+    if (Has the King moved?) then (yes)
+        :Player can't castle;
+        :Return to "chooses a piece";  
+    else (no)
+        if (Has the Rook moved?) then (yes)
+            :Player can't castle;
+            :Return to "chooses a piece"; 
+        else (no)
+            if (Are squares between King and Rook empty?) then (yes)
+                if (Is the King in check?) then (yes)
+                    :Player can't castle;
+                    :Return to "chooses a piece"; 
+                else (no)
+                    :Display valid castling moves;
+                    stop
+                endif
+            else (no)
+                :Player can't castle;
+                :Return to "chooses a piece"; 
+            endif
+        endif
+    endif
+repeat while (Chooses again)
+
+@enduml
