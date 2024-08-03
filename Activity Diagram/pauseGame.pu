@@ -1,0 +1,17 @@
+@startuml pauseGame
+|Player|
+start
+:Initiates pause game action;
+
+|System|
+:Check if game is currently running;
+if (Game running?) then (yes)
+    :Pause the game;
+    :Save current game state;
+    :Show pause menu/options;
+    :Notify player "Game is paused";
+else (no)
+    :Notify player "No game is currently running";
+endif
+stop
+@enduml
