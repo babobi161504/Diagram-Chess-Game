@@ -1,4 +1,5 @@
 @startuml castling
+title "Castling move"
 |Player|
 start
 repeat
@@ -11,26 +12,27 @@ repeat
 
     if (Has the King moved?) then (yes)
         :Player can't castle;
-        :Return to "chooses a piece";  
+        :Return to "chooses a piece";
     else (no)
         if (Has the Rook moved?) then (yes)
             :Player can't castle;
-            :Return to "chooses a piece"; 
+            :Return to "chooses a piece";
         else (no)
             if (Are squares between King and Rook empty?) then (yes)
                 if (Is the King in check?) then (yes)
                     :Player can't castle;
-                    :Return to "chooses a piece"; 
+                    :Return to "chooses a piece";
                 else (no)
                     :Display valid castling moves;
                     stop
                 endif
             else (no)
                 :Player can't castle;
-                :Return to "chooses a piece"; 
+                :Return to "chooses a piece";
             endif
         endif
     endif
+|Player|
 repeat while (Chooses again)
 
 @enduml

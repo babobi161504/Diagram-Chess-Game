@@ -1,34 +1,35 @@
 @startuml movePiece
+title "Move piece"
 |Player|
 start
 repeat
     :chooses a piece;
-    
+
     |System|
     :Show valid moves for the piece;
-repeat
-    |Player|
-    :chooses a cell to move to;
+    repeat
+        |Player|
+        :chooses a cell to move to;
 
-    |System|
-    :Check if the move is valid;
+        |System|
+        :Check if the move is valid;
 
-    if (Move valid?) then (yes)
-        :Update piece to the new cell;
-        :Check for end game|
-        
-        if (Game over?) then (yes)
-            :Show notification "End Game";
+        if (Move valid?) then (yes)
+            :Update piece to the new cell;
+            :Check for end game|
+
+            if (Game over?) then (yes)
+                :Show notification "End Game";
+            else (no)
+                :Switch player;
+
+            endif
+            stop
         else (no)
-            :Switch player;
-            
+            :Show notification "You can't move this piece to this cell";
         endif
-        stop
-    else (no)
-    :Show notification "You can't move this piece to this cell";
-    endif
-|Player|
-repeat while (Chooses another move ?) is (yes)
+        |Player|
+    repeat while (Chooses another move ?) is (yes) not (no)
 
 repeat while (chooses another piece )
 @enduml

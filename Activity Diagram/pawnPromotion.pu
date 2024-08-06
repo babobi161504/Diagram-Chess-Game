@@ -1,4 +1,5 @@
 @startuml pawnPromotion
+title "Pawm promotion move"
 |Player|
 start
 :Pawn moves to the last rank;
@@ -7,6 +8,7 @@ start
 :System prompts for promotion choice;
 
 repeat
+    |Player|
     :Player chooses a piece for promotion;
 
     |System|
@@ -14,7 +16,7 @@ repeat
 
     if (Piece valid?) then (yes)
         :Replace pawn with the chooses piece;
-        :Update game state; 
+        :Update game state;
 
         :Check for checkmate;
         if (Game over ?) then (yes)
@@ -29,8 +31,11 @@ repeat
         endif
         stop
     else (no)
-        :Display "Invalid promotion choice";     
+        :Display "Invalid promotion choice";
     endif
-repeat while (Chooses again)
+    |Player|
+repeat while (Chooses another piece to promotion)
+
+
 
 @enduml
