@@ -1,4 +1,5 @@
 @startuml pauseGame
+title "Pause game"
 |Player|
 start
 :Initiates pause game action;

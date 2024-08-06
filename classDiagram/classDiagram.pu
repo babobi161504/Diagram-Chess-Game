@@ -14,12 +14,14 @@ class Game {
     - whitePlayer: Player 
     - blackPlayer: Player
     - board: Board
+    - time: milliseconds
 
     + startGame(): void
-    + undoMove(): void
     + saveGame(): void
     + resetGame(): void
     + pauseGame(): void
+    + endGame(): void
+    + timing(): void
 }
 
 class Board {

@@ -2,18 +2,17 @@
 title Chess Game Use Case Diagram (Offline)
 left to right direction
 actor Player
-rectangle chessgame {
+package chessgame {
 
-package "Screen Game" {
+rectangle "Screen Game" {
     usecase "Start Game" as StartGame
     usecase "Move Piece" as MovePiece
-    usecase "Undo Move" as UndoMove
     usecase "End Game" as EndGame
     usecase "Propose Draw" as ProposeDraw
     usecase "Surrender" as Surrender
 }
 
-package "Screen System" {
+rectangle "Screen System" {
     usecase "Reset Game" as ResetGame
     usecase "Pause Game" as PauseGame
 }
@@ -21,7 +20,6 @@ package "Screen System" {
 Player -down-> StartGame
 Player -down-> MovePiece
 Player -down-> ResetGame
-Player -down-> UndoMove
 Player -down-> PauseGame
 Player -down-> EndGame
 
