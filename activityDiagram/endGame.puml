@@ -1,0 +1,33 @@
+
+@startuml "Play a game activity diagram"
+title "End Game"
+
+|Player|
+
+start
+repeat
+    if (End game action?) then (surrender)
+        |Player|
+        :Click on surrender button;      
+        :Show notification for other player "Player white|black surrender";
+        |System|
+        :Validate surrender request;
+
+    else (Propose draw)
+        |Player|
+        :Click on Propose draw button;
+        :Show notification for other player "Player white|black want to draw game";
+        |System|
+        :Validate draw request;
+        
+    endif   
+        repeat while (End game vertify?) is (no)
+        ->yes;
+
+|System|
+:Display game result screen;
+:End game;
+|Player|
+:Review game result;
+stop
+@enduml
