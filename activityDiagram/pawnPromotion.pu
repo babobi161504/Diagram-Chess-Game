@@ -1,0 +1,23 @@
+@startuml pawnPromotion
+title "Pawm promotion move"
+|Player|
+start
+:Pawn moves to the last rank;
+
+|System|
+:System show the promotion choice (Queen, Rook, Bishop, Knight);
+
+|Player|
+:Player chooses a piece for promotion ;
+
+|System|
+:Replace pawn with the chooses piece;
+:Check for end game|
+if (End game ?) then (yes)
+    :Show notification "End game";
+else (no)
+    :Switch player;
+endif
+stop
+
+@enduml

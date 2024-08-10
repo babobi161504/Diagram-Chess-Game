@@ -1,15 +1,15 @@
 @startuml "Play a game activity diagram"
 title "Start Game"
 
-|User|
+|Player|
 start
 :Click on Start Button;
 
 |System|
 :Enable Screen Game Action;
 
-|User|
-:Let User Play The Game;
+|Player|
+:Let Player Play The Game;
 
 stop
 @enduml
